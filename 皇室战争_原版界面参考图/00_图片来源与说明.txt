@@ -1,0 +1,133 @@
+﻿皇室战争 · 界面参考图索引
+
+共 21 张图片。包含不同年份的截图、视频截帧、竞技场与卡牌图。保留各来源的图像尺寸和构图，部分竖屏截图附在黑色横向画布中。
+
+01_对战大厅与竞技场/七阶皇家竞技场-原版大厅模型.png
+尺寸　620 × 620
+620×620 透明 PNG。RoyaleAPI 资源集中原版大厅展示的皇家竞技场模型，可见左蓝右红尖塔、中央金色出水口、草地、双桥和前侧金色城垛。
+来源页　https://github.com/RoyaleAPI/cr-api-assets/blob/master/arenas/arena7.png
+图片　https://royaleapi.github.io/cr-api-assets/arenas/arena7.png
+
+01_对战大厅与竞技场/玩家战旗与皇室令牌.jpg
+尺寸　1179 × 1714
+论坛实机截图。用于核对玩家战旗、奖杯和皇室令牌的位置。
+来源页　https://hypixel.net/threads/rate-the-clash-royale-deck-6000-trophies.5440337/
+图片　https://hypixel.net/attachments/3228213/
+
+01_对战大厅与竞技场/经典一至十阶竞技场总览.jpg
+尺寸　928 × 586
+928×586。早期一至十阶竞技场模型对照图。下排第二格为第七阶。图内署名 Clash Royale Dicas，下载页面为 WallpaperSafari。
+来源页　https://wallpapersafari.com/w/ezBJgE
+图片　https://cdn.wallpapersafari.com/57/91/ezBJgE.jpg
+
+01_对战大厅与竞技场/经典对战大厅.png
+尺寸　3840 × 2160
+经典大厅的竞技场、对战按钮、四个宝箱位和底部五页签，保留来源网站原始画布。
+来源页　https://interfaceingame.com/screenshots/clash-royale-main-menu/
+图片　https://interfaceingame.com/wp-content/uploads/clash-royale/clash-royale-main-menu.png
+
+02_卡组与角色/哥布林.png
+尺寸　495 × 526
+哥布林竞技场卡牌目录所列的哥布林原图。可核对绿色皮肤、尖耳与背心。
+来源页　https://clashroyalecards.weebly.com/goblin-stadium.html
+图片　https://clashroyalecards.weebly.com/uploads/7/2/4/7/72471397/6116101_orig.png
+
+02_卡组与角色/对战卡组与卡牌收藏.png
+尺寸　3840 × 2160
+两排木质卡槽、卡组切换、圣水均值和收藏区。收录来源页的原尺寸下载图。
+来源页　https://interfaceingame.com/screenshots/clash-royale-battle-deck/
+图片　https://interfaceingame.com/wp-content/uploads/clash-royale/clash-royale-battle-deck.png
+
+02_卡组与角色/巨人.png
+尺寸　492 × 532
+训练营卡牌目录所列的巨人原图。可核对橙色粗眉、宽鼻及脸部轮廓。
+来源页　https://clashroyalecards.weebly.com/training-camp.html
+图片　https://clashroyalecards.weebly.com/uploads/7/2/4/7/72471397/1713041_orig.png
+
+02_卡组与角色/弓箭手.png
+尺寸　400 × 450
+Supercell 2022 年 4 月平衡调整的官方原图。上轮搜索结果将此图显示为双人，直接下载并打开此链接后，图中实际为一位持弓的粉发弓箭手。
+来源页　https://supercell.com/en/games/clashroyale/blog/release-notes/balance-changes-april-2022/
+图片　https://clashroyale.inbox.supercell.com/9jtsgmsiuthj/k_YHCzHVW18wcI4601sk91QptsRVXjrx2xAJlj8qJ14/f8a6330427caa1cd370040a0b58ad3dc/24741016_1648052731.png
+
+02_卡组与角色/迷你皮卡.png
+尺寸　514 × 565
+训练营卡牌目录所列的迷你皮卡原图。可核对蓝色发光眼部、金属面甲和头盔。
+来源页　https://clashroyalecards.weebly.com/training-camp.html
+图片　https://clashroyalecards.weebly.com/uploads/7/2/4/7/72471397/7567510_orig.png
+
+02_卡组与角色/骑士.png
+尺寸　524 × 540
+训练营卡牌目录所列的骑士原图。可核对银色头盔与金色八字胡。
+来源页　https://clashroyalecards.weebly.com/training-camp.html
+图片　https://clashroyalecards.weebly.com/uploads/7/2/4/7/72471397/1062559_orig.png
+
+03_商店/早期商店与宝箱赠礼.jpg
+尺寸　1076 × 1565
+早期商店实机图，六栏包含免费白银宝箱和不同稀有度的卡牌。
+来源页　https://x.com/SurgicalGoblin/status/919705308209041408
+图片　https://pbs.twimg.com/media/DMNzF0UXUAAvRQg?format=jpg&name=orig
+
+03_商店/每日精选与商店顶棚.png
+尺寸　3840 × 2160
+完整竖屏商店界面，参考了店铺顶棚、两排三列货架、免费宝箱与上锁栏位。
+来源页　https://interfaceingame.com/screenshots/clash-royale-daily-deals/
+图片　https://interfaceingame.com/wp-content/uploads/clash-royale/clash-royale-daily-deals.png
+
+03_商店/每日精选与已购状态.jpg
+尺寸　720 × 1089
+2023 年 7 月的每日商品截图，展示卡牌份数、已购标记与右下锁位。
+来源页　https://onechilledgamer.com/clash-royale-currency-and-item-guide/
+图片　https://i0.wp.com/onechilledgamer.com/wp-content/uploads/2023/07/clash-royale-buying-upgrade-cards.jpg?ssl=1&w=720
+
+03_商店/皇家宝箱与宝石价格.jpg
+尺寸　720 × 579
+2023 年 7 月的皇家宝箱区，三格分别为雷电、幸运、国王宝箱，标价 250、750、2000 宝石。
+来源页　https://onechilledgamer.com/clash-royale-currency-and-item-guide/
+图片　https://i0.wp.com/onechilledgamer.com/wp-content/uploads/2023/07/clash-royale-buying-chests.jpg?ssl=1&w=720
+
+03_商店/金币袋与卡牌进度条.jpg
+尺寸　700 × 545
+西班牙语商店的每日商品近景，展示金币袋、卡牌叠放数量、升级进度和购买价格。
+来源页　https://androidphoria.com/juegos/como-mejorar-tus-cartas-de-clash-royale-al-nivel-maximo
+图片　https://androidphoria.com/wp-content/uploads/Clash-Royale-Tienda.jpg
+
+03_商店/集市改版与木招牌.jpg
+尺寸　4267 × 4267
+2023 年 12 月集市改版宣传图。顶部保留金边横栏、彩旗和 MARKET 木牌，下方为蓝绿色菱纹底与三列商品。
+来源页　https://royaleapi.com/blog/2023-december-update?lang=jp
+图片　https://cdns3.royaleapi.com/static/img/blog/2023-q4-update/v2-90e1741b/2023q4-feature-02-300-7.jpg
+
+04_部落/部落战开始与成员加入通知.jpg
+尺寸　960 × 540
+2020年部落战2预告片截帧。紫色与绿色系统活动通知，下方可以看到请求卡牌与友谊战按钮。
+来源页　https://royaleapi.com/blog/clan-wars-2?lang=en
+图片　https://cdn.royaleapi.com/static/img/blog/update-cw2/video-thumb/cw2-2fps-0274.jpg?t=49ff38bec
+
+04_部落/部落战胜利与摧毁战船通知.jpg
+尺寸　960 × 540
+2020年部落战2预告片截帧。蓝色胜利面板显示摧毁的部落战船和最后进攻者。
+来源页　https://royaleapi.com/blog/clan-wars-2?lang=en
+图片　https://cdn.royaleapi.com/static/img/blog/update-cw2/video-thumb/cw2-2fps-0275.jpg?t=437056d1c
+
+04_部落/部落聊天与战船战败通知.jpg
+尺寸　960 × 540
+2020年部落战2预告片截帧。浅色玩家聊天气泡位于上半部，下方为红色战船战败通知。
+来源页　https://royaleapi.com/blog/clan-wars-2?lang=en
+图片　https://cdn.royaleapi.com/static/img/blog/update-cw2/video-thumb/cw2-2fps-0277.jpg?t=957dc2fbc
+
+04_部落/部落资料与设置栏.jpg
+尺寸　960 × 540
+2020年部落战2预告片截帧。灰色标题栏下有部落名、徽章和介绍，下方为蓝色地区、加入方式和部落标签信息栏。
+来源页　https://royaleapi.com/blog/clan-wars-2?lang=en
+图片　https://cdn.royaleapi.com/static/img/blog/update-cw2/video-thumb/cw2-2fps-0283.jpg?t=295bd105c
+
+05_活动/活动首页与四个模式详情.jpg
+尺寸　1920 × 1080
+2023年第一季度活动2.0，RoyaleAPI 的五幅真机界面汇总图。依次为 Boot Camp 活动首页、派对火箭活动、两种 1v1 详情和 2v2 奖励详情。保留整幅原图。
+来源页　https://royaleapi.com/blog/2023-q1-update-for-losers?lang=en
+图片　https://cdn.royaleapi.com/static/img/blog/2023-q1-update/2023q1-info-01-001.jpg
+
+仅作链接列出的两项参考
+2018 年商店旧截图　https://i.rutab.net/upload/2018/10/mobilegaming/1540012585-10.jpg （来源站未返回原图。）
+FAU 演示文稿第 25 页　https://www.medpaed.phil.fau.de/files/2024/06/nuedigitalPraesentation_fau_09072024_.pdf#page=25 （以原始 PDF 页链接收录。）
