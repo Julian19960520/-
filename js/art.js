@@ -211,6 +211,7 @@
     magic: { panel: ['#d27bff', '#6d1fb3'], lid: ['#e3a3ff', '#8233c9'], trim: ['#ffe38a', '#c98300'], line: '#33094f', lock: ['#fff1a8', '#d79300'] },
     giant: { panel: ['#f39a3d', '#a8520f'], lid: ['#ffb862', '#c2661a'], trim: ['#e9eef5', '#7d8899'], line: '#4a2207', lock: ['#fff1a8', '#d79300'] },
     lightning: { panel: ['#5fe0ff', '#1677c9'], lid: ['#9cf0ff', '#2b8fdc'], trim: ['#f1f4f8', '#6f7f96'], line: '#0b2f55', lock: ['#fff1a8', '#d79300'] },
+    fortune: { panel: ['#eb75ff', '#8c1ec9'], lid: ['#f8a8ff', '#a832e0'], trim: ['#f2b8ff', '#6a129e'], line: '#38065a', lock: ['#d6ffff', '#4ad8ff'] },
     legendary: { panel: ['#ffd2ff', '#9b6cff'], lid: ['#fff', '#b98cff'], trim: ['#ffe9a8', '#d49300'], line: '#3b1d6e', lock: ['#fff', '#d0b5ff'] },
     king: { panel: ['#ffd84d', '#d68a00'], lid: ['#ffeb8a', '#e09d00'], trim: ['#7fd0ff', '#1d64c4'], line: '#4a2a00', lock: ['#ff6a5a', '#b51f1f'] },
   };
@@ -221,13 +222,23 @@
     const glow = opts.glow
       ? `<ellipse cx="50" cy="52" rx="48" ry="40" fill="url(#${a}gl)"/>`
       : '';
+    const cushion = opts.cushion
+      ? `<path d="M8 82 Q20 72 50 72 Q80 72 92 82 Q75 91 50 91 Q25 91 8 82 Z" fill="#1a4fa3" stroke="#0c2654" stroke-width="2"/>
+         <path d="M10 82 Q50 90 90 82" fill="none" stroke="#ffc928" stroke-width="2" stroke-dasharray="3 2"/>
+         <circle cx="8" cy="83" r="3" fill="#ffc928" stroke="#7a4300" stroke-width="1"/>
+         <circle cx="92" cy="83" r="3" fill="#ffc928" stroke="#7a4300" stroke-width="1"/>`
+      : '';
     const bolt = type === 'lightning'
       ? `<path d="M52 24 L43 40 H50 L46 54 L58 35 H51 L55 24 Z" fill="#fff36b" stroke="${c.line}" stroke-width="1.4" stroke-linejoin="round"/>`
+      : '';
+    const orb = type === 'fortune'
+      ? `<circle cx="50" cy="34" r="13" fill="#aef8ff" stroke="${c.line}" stroke-width="2"/>
+         <circle cx="47" cy="31" r="6" fill="#fff" opacity=".85"/>`
       : '';
     const crownMark = type === 'king'
       ? `<g transform="translate(41 21) scale(.3)">${crownPath()}</g>`
       : '';
-    return svg('0 0 100 92', `
+    return svg('0 0 100 94', `
       <defs>
         ${lg(a + 'p', [[0, c.panel[0]], [1, c.panel[1]]])}
         ${lg(a + 'l', [[0, c.lid[0]], [1, c.lid[1]]])}
@@ -236,7 +247,8 @@
         ${rg(a + 'gl', [[0, '#fff', 0.9], [0.4, c.panel[0], 0.5], [1, c.panel[0], 0]])}
       </defs>
       ${glow}
-      <ellipse cx="50" cy="85" rx="40" ry="6" fill="#000" opacity=".28"/>
+      <ellipse cx="50" cy="86" rx="40" ry="6" fill="#000" opacity=".28"/>
+      ${cushion}
       <!-- body -->
       <path d="M12 46 H88 L86 80 Q86 84 82 84 H18 Q14 84 14 80 Z" fill="url(#${a}p)" stroke="${c.line}" stroke-width="2.4" stroke-linejoin="round"/>
       <path d="M16 62 H84" stroke="${c.line}" stroke-width="1" opacity=".35"/>
@@ -258,7 +270,7 @@
       <!-- corner feet -->
       <path d="M12 76 H22 V86 H15 Q12 86 12 83 Z" fill="url(#${a}t)" stroke="${c.line}" stroke-width="1.8"/>
       <path d="M88 76 H78 V86 H85 Q88 86 88 83 Z" fill="url(#${a}t)" stroke="${c.line}" stroke-width="1.8"/>
-      ${bolt}${crownMark}
+      ${bolt}${orb}${crownMark}
       <!-- lock -->
       <path d="M39 38 H61 V58 Q61 66 50 70 Q39 66 39 58 Z" fill="url(#${a}k)" stroke="${c.line}" stroke-width="2.2" stroke-linejoin="round"/>
       <path d="M42 41 H58 V57 Q58 63 50 66 Q42 63 42 57 Z" fill="none" stroke="#fff" stroke-width="1.2" opacity=".6"/>
@@ -525,8 +537,11 @@
   }
 
   /* ---------------- 部落徽章 ---------------- */
-  function clanBadge(inner = '#d83a2e', innerDark = '#8e1a14') {
+  function clanBadge(inner = '#d83a2e', innerDark = '#8e1a14', emblem = 'rook') {
     const a = U('cb');
+    const emb = emblem === 'bolt'
+      ? `<path d="M33 21 L23 36 H30 L27 49 L38 33 H31 Z" fill="#fff" stroke="#3a0a5a" stroke-width="1.2" stroke-linejoin="round"/>`
+      : `<path d="M22 26 H25 V23 H28.5 V26 H31.5 V23 H35 V26 H38 V32 H35 V44 H38 V48 H22 V44 H25 V32 H22 Z" fill="#fff" stroke="#5a1a0a" stroke-width="1"/>`;
     return svg('0 0 60 70', `
       <defs>
         ${lg(a + 'g', [[0, '#ffe58a'], [0.5, '#e9a62a'], [1, '#9a5a0c']], 0, 0, 1, 1)}
@@ -534,7 +549,7 @@
       </defs>
       <path d="M8 10 H16 V4 H24 V10 H36 V4 H44 V10 H52 V40 Q52 58 30 67 Q8 58 8 40 Z" fill="url(#${a}g)" stroke="#4a2800" stroke-width="2.4" stroke-linejoin="round"/>
       <path d="M14 16 H46 V40 Q46 53 30 60 Q14 53 14 40 Z" fill="url(#${a}r)" stroke="#5a1a0a" stroke-width="1.6"/>
-      <path d="M22 26 H25 V23 H28.5 V26 H31.5 V23 H35 V26 H38 V32 H35 V44 H38 V48 H22 V44 H25 V32 H22 Z" fill="#fff" stroke="#5a1a0a" stroke-width="1"/>
+      ${emb}
       <path d="M12 12 H22" stroke="#fff8d0" stroke-width="2" opacity=".7"/>
     `);
   }
@@ -670,9 +685,136 @@
     `, 'preserveAspectRatio="xMidYMid slice"');
   }
 
+  /* ---------------- 哥布林竞技场 (Arena 1) ---------------- */
+  function goblinArena() {
+    const a = U('ga');
+    let logs = '';
+    const logPts = [
+      [54, 108, 22], [72, 98, 24], [190, 96, 24], [208, 108, 22],
+      [48, 132, 26], [48, 160, 26], [48, 188, 26],
+      [64, 198, 24], [82, 200, 22], [110, 202, 22],
+      [172, 202, 22], [192, 200, 22], [212, 198, 24],
+    ];
+    logPts.forEach(([x, y, h]) => {
+      logs += `<rect x="${x}" y="${y}" width="15" height="${h}" rx="3" fill="url(#${a}lg)" stroke="#3e220c" stroke-width="1.6"/>
+               <ellipse cx="${x + 7.5}" cy="${y + 2}" rx="6.5" ry="2.2" fill="#e2b47e" stroke="#5a3414" stroke-width="1"/>`;
+    });
+    return svg('0 0 300 300', `
+      <defs>
+        ${lg(a + 'bs', [[0, '#3a4766'], [1, '#1b2338']])}
+        ${lg(a + 'wt', [[0, '#62e0c8'], [1, '#269e90']])}
+        ${lg(a + 'gr', [[0, '#8ce058'], [1, '#4ca628']])}
+        ${lg(a + 'lg', [[0, '#b97a45'], [1, '#75461f']])}
+        ${lg(a + 'wh', [[0, '#d59352'], [1, '#844e22']])}
+        ${lg(a + 'rd', [[0, '#ff6e5e'], [1, '#b82820']])}
+        ${lg(a + 'bl', [[0, '#5ea8ff'], [1, '#205ab0']])}
+      </defs>
+      <ellipse cx="150" cy="278" rx="118" ry="12" fill="#000" opacity=".35"/>
+      <!-- dark slate base -->
+      <path d="M40 120 L260 120 L270 256 Q270 274 250 274 H50 Q30 274 30 256 Z" fill="url(#${a}bs)" stroke="#11172a" stroke-width="2.4"/>
+      <!-- outer moat water -->
+      <path d="M48 124 H252 L258 238 H42 Z" fill="url(#${a}wt)" stroke="#1a5e58" stroke-width="1.8"/>
+      <!-- grassy island -->
+      <path d="M62 116 H238 L242 220 H58 Z" fill="url(#${a}gr)" stroke="#347a1a" stroke-width="2"/>
+      <!-- dirt path loop -->
+      <rect x="86" y="142" width="128" height="54" rx="8" fill="none" stroke="#d8ae72" stroke-width="14"/>
+      <rect x="86" y="142" width="128" height="54" rx="8" fill="none" stroke="#a67c46" stroke-width="14" stroke-dasharray="2 12"/>
+      <!-- river down middle -->
+      <rect x="139" y="114" width="22" height="124" fill="url(#${a}wt)" stroke="#1e7a70" stroke-width="1.4"/>
+      <path d="M146 122 V232 M154 128 V228" stroke="#bffaf0" stroke-width="1.6" stroke-dasharray="6 8" opacity=".8"/>
+      <!-- two wooden bridges -->
+      <rect x="130" y="136" width="40" height="14" rx="2" fill="url(#${a}wh)" stroke="#4a280d" stroke-width="1.6"/>
+      <rect x="130" y="186" width="40" height="14" rx="2" fill="url(#${a}wh)" stroke="#4a280d" stroke-width="1.6"/>
+      <!-- wooden waterwheel at top -->
+      <g transform="translate(150 86)">
+        <ellipse cx="0" cy="0" rx="28" ry="32" fill="url(#${a}wh)" stroke="#3e220c" stroke-width="2.4"/>
+        <ellipse cx="0" cy="0" rx="18" ry="22" fill="#4e2c12" stroke="#3e220c" stroke-width="1.8"/>
+        <line x1="-26" y1="0" x2="26" y2="0" stroke="#e2a86b" stroke-width="3"/>
+        <line x1="0" y1="-30" x2="0" y2="30" stroke="#e2a86b" stroke-width="3"/>
+        <line x1="-20" y1="-22" x2="20" y2="22" stroke="#e2a86b" stroke-width="2.5"/>
+        <line x1="-20" y1="22" x2="20" y2="-22" stroke="#e2a86b" stroke-width="2.5"/>
+        <circle cx="0" cy="0" r="6" fill="#9aabc0" stroke="#2c3442" stroke-width="1.8"/>
+      </g>
+      <!-- log palisades -->
+      ${logs}
+      <!-- right side red & blue cloth canopy -->
+      <path d="M214 96 L258 92 L254 148 L210 144 Z" fill="url(#${a}rd)" stroke="#5a120d" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M214 144 L256 146 L252 176 L212 170 Z" fill="url(#${a}bl)" stroke="#122e66" stroke-width="2" stroke-linejoin="round"/>
+      <!-- fern leaves -->
+      <path d="M36 164 Q20 148 26 134 Q34 144 42 156 Q28 134 38 122 Q44 136 48 152 Z" fill="#68cf38" stroke="#286812" stroke-width="1.4"/>
+      <path d="M242 222 Q258 206 266 218 Q254 226 244 230 Q262 224 268 234 Q252 238 240 236 Z" fill="#68cf38" stroke="#286812" stroke-width="1.4"/>
+    `);
+  }
+
+  /* ---------------- 金币袋 / 赛季代币 / 夺金金库 ---------------- */
+  function goldPouch() {
+    const a = U('gp');
+    return svg('0 0 80 76', `
+      <defs>
+        ${lg(a + 'b', [[0, '#ffdfa2'], [0.55, '#d6984a'], [1, '#8c561b']])}
+      </defs>
+      <ellipse cx="40" cy="66" rx="28" ry="6" fill="#000" opacity=".28"/>
+      <!-- coin stack behind -->
+      <g transform="translate(48 38)">
+        ${[16, 12, 8, 4, 0].map(y => `<ellipse cx="10" cy="${y}" rx="8" ry="3.2" fill="#ffc928" stroke="#7a4300" stroke-width="1.2"/>`).join('')}
+      </g>
+      <!-- bag body -->
+      <path d="M28 28 Q14 38 16 56 Q18 66 38 66 Q56 66 58 54 Q58 38 46 28 Z" fill="url(#${a}b)" stroke="#4a2808" stroke-width="2"/>
+      <!-- coins inside mouth -->
+      <circle cx="33" cy="22" r="5" fill="#ffd84a" stroke="#7a4300" stroke-width="1.2"/>
+      <circle cx="41" cy="21" r="5.5" fill="#ffc928" stroke="#7a4300" stroke-width="1.2"/>
+      <circle cx="37" cy="25" r="5" fill="#ffe680" stroke="#7a4300" stroke-width="1.2"/>
+      <!-- bag ruffle & rope -->
+      <path d="M24 18 Q37 24 50 18 L46 28 H28 Z" fill="url(#${a}b)" stroke="#4a2808" stroke-width="1.8" stroke-linejoin="round"/>
+      <rect x="26" y="26" width="22" height="4.5" rx="2" fill="#d8e4f0" stroke="#46586e" stroke-width="1.2"/>
+      <path d="M37 28 L34 38 M39 28 L42 37" stroke="#d8e4f0" stroke-width="2.5" stroke-linecap="round"/>
+      <!-- scattered coins -->
+      <ellipse cx="15" cy="62" rx="6.5" ry="3" fill="#ffc928" stroke="#7a4300" stroke-width="1.2"/>
+      <ellipse cx="22" cy="60" rx="6" ry="4" transform="rotate(-25 22 60)" fill="#ffd84a" stroke="#7a4300" stroke-width="1.2"/>
+      <ellipse cx="58" cy="64" rx="6.5" ry="3" fill="#ffc928" stroke="#7a4300" stroke-width="1.2"/>
+    `);
+  }
+
+  function seasonToken() {
+    const a = U('st');
+    return svg('0 0 44 44', `
+      <defs>
+        ${lg(a + 'o', [[0, '#e3e8f2'], [1, '#7f8ca0']])}
+        ${lg(a + 'i', [[0, '#df7aff'], [1, '#7e1ec2']])}
+      </defs>
+      <polygon points="14,3 30,3 41,14 41,30 30,41 14,41 3,30 3,14" fill="url(#${a}o)" stroke="#222a38" stroke-width="2.2"/>
+      <polygon points="16,7 28,7 37,16 37,28 28,37 16,37 7,28 7,16" fill="url(#${a}i)" stroke="#3d0866" stroke-width="1.6"/>
+      <path d="M13 28 L11 16 L18 21 L22 13 L26 21 L33 16 L31 28 Z" fill="#fff" stroke="#3d0866" stroke-width="1.4" stroke-linejoin="round"/>
+    `);
+  }
+
+  function heistSafe() {
+    const a = U('hs');
+    return svg('0 0 48 48', `
+      <defs>
+        ${lg(a + 'g', [[0, '#ffe878'], [0.5, '#f2ac18'], [1, '#a86400']])}
+      </defs>
+      <rect x="6" y="8" width="36" height="32" rx="5" fill="url(#${a}g)" stroke="#4a2800" stroke-width="2.2"/>
+      <rect x="11" y="13" width="26" height="22" rx="3" fill="#d88c0c" stroke="#5a3200" stroke-width="1.6"/>
+      <g transform="translate(15 17) scale(.3)">${crownPath()}</g>
+      <circle cx="34" cy="24" r="3.5" fill="#e2e8f0" stroke="#2c3442" stroke-width="1.4"/>
+    `);
+  }
+
+  function partyBalloons() {
+    return svg('0 0 36 54', `
+      <path d="M12 24 Q14 38 18 52 M24 28 Q22 40 18 52" stroke="#ddd" stroke-width="1.4" fill="none"/>
+      <ellipse cx="12" cy="14" rx="9" ry="11" fill="#3cd070" stroke="#145a2c" stroke-width="1.6"/>
+      <ellipse cx="9" cy="10" rx="2.5" ry="4" fill="#a8ffbe" opacity=".7"/>
+      <ellipse cx="24" cy="18" rx="8.5" ry="10.5" fill="#46b8ff" stroke="#124a80" stroke-width="1.6"/>
+      <ellipse cx="21" cy="14" rx="2.2" ry="3.5" fill="#b8ebff" opacity=".7"/>
+    `);
+  }
+
   window.Art = {
     U, svg, star, coin, gem, levelBadge, trophy, crown, elixir, elixirBadge, upArrow, clock, lock, check,
-    friends, newsGlobe, infoIcon, chest, arena, navShop, navCards, navBattle, navClan, navEvents,
-    clanBadge, anchorBadge, kingTower, goldPile, gemPile, passScene, shopPassScene, eventScene, crownPath,
+    friends, newsGlobe, infoIcon, chest, arena, goblinArena, navShop, navCards, navBattle, navClan, navEvents,
+    clanBadge, anchorBadge, kingTower, goldPile, gemPile, goldPouch, seasonToken, heistSafe, partyBalloons,
+    passScene, shopPassScene, eventScene, crownPath,
   };
 })();

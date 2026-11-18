@@ -572,5 +572,174 @@
     return wrap(u, d, b);
   };
 
+  /* ---------------- GOBLIN HUT ---------------- */
+  P.goblinhut = function (u) {
+    var B = bg(u, '#b5d6ef', '#6c98bf', '#fff6d6');
+    var d = B.d +
+      lg(u + '-st', 0, 0, 0, 1, [[0, '#ffe37a'], [0.55, '#dfa438'], [1, '#9c6615']]) +
+      lg(u + '-wd', 0, 0, 0, 1, [[0, '#c88c52'], [1, '#6e421c']]) +
+      lg(u + '-dr', 0, 0, 0, 1, [[0, '#1a120b'], [1, '#3a2412']]);
+    var b = B.b +
+      '<path d="M0 96 Q50 88 100 96 L100 120 L0 120Z" fill="#5da632"/>' +
+      // wooden walls
+      '<path d="M18 68 L82 68 L86 114 L14 114Z" fill="url(#' + u + '-wd)"' + st(1.5) + '/>' +
+      '<path d="M30 68 L28 114 M50 68 L50 114 M70 68 L72 114" stroke="#4a280d" stroke-width="1.3"/>' +
+      // doorway
+      '<path d="M36 114 L38 82 Q50 76 62 82 L64 114Z" fill="url(#' + u + '-dr)"' + st(1.3) + '/>' +
+      // glowing goblin eyes inside door
+      '<circle cx="46" cy="96" r="2" fill="#ffeb5a"/><circle cx="54" cy="96" r="2" fill="#ffeb5a"/>' +
+      // straw conical roof
+      '<path d="M50 12 L94 74 Q50 84 6 74 Z" fill="url(#' + u + '-st)"' + st(1.6) + '/>' +
+      '<path d="M50 14 L22 72 M50 14 L36 75 M50 14 L50 77 M50 14 L64 75 M50 14 L78 72" stroke="#8a5610" stroke-width="1.2" opacity="0.7"/>' +
+      // wooden crossbeams at roof peak & front
+      '<path d="M38 8 L60 24 M62 8 L40 24" stroke="#6e421c" stroke-width="4" stroke-linecap="round"/>' +
+      '<path d="M38 8 L60 24 M62 8 L40 24" stroke="#b57a42" stroke-width="2" stroke-linecap="round"/>' +
+      '<rect x="34" y="54" width="32" height="8" rx="2" transform="rotate(-4 50 58)" fill="url(#' + u + '-wd)"' + st(1.2) + '/>';
+    return wrap(u, d, b);
+  };
+
+  /* ---------------- P.E.K.K.A ---------------- */
+  P.pekka = function (u) {
+    var B = bg(u, '#4a3668', '#1c1230', '#ff80df');
+    var d = B.d +
+      lg(u + '-ar', 0, 0, 0, 1, [[0, '#5a607a'], [0.5, '#2e3246'], [1, '#141622']]) +
+      rg(u + '-hm', 0.4, 0.3, 0.7, [[0, '#727896'], [0.55, '#34384e'], [1, '#161826']]) +
+      lg(u + '-hn', 0, 0, 1, 0, [[0, '#ff9cf5'], [0.5, '#d83cc8'], [1, '#7a1278']]) +
+      rg(u + '-ey', 0.5, 0.5, 0.5, [[0, '#ffffff'], [0.4, '#ff7af0'], [1, '#c81ab8', 0]]);
+    var b = B.b +
+      // massive shoulder armor
+      '<path d="M-4 122 Q0 90 26 84 L74 84 Q100 90 104 122Z" fill="url(#' + u + '-ar)"' + st(1.6) + '/>' +
+      mir('<path d="M-2 104 Q4 78 28 80 L24 106Z" fill="url(#' + u + '-hm)"' + st(1.5) + '/>') +
+      // glowing pink crystal horns
+      mir('<path d="M24 44 Q4 36 2 14 Q16 22 30 30Z" fill="url(#' + u + '-hn)"' + st(1.4) + '/>' +
+        '<path d="M6 18 L24 34" stroke="#ffd6fa" stroke-width="1.5" opacity="0.7"/>') +
+      // heavy fortress helm
+      '<path d="M20 62 Q18 22 50 20 Q82 22 80 62 Q78 92 50 98 Q22 92 20 62Z" fill="url(#' + u + '-hm)"' + st(1.7) + '/>' +
+      '<path d="M50 20 L50 96" stroke="#141622" stroke-width="2.6"/>' +
+      '<path d="M51.2 22 L51.2 94" stroke="#8a92b2" stroke-width="0.9"/>' +
+      // eye cutouts
+      mir('<path d="M28 52 L45 56 L44 64 L27 60Z" fill="#0d0814"' + st(1.2) + '/>' +
+        '<ellipse cx="37" cy="58" rx="8" ry="5" fill="url(#' + u + '-ey)"/>' +
+        '<polygon points="33,57 42,58 41,60 33,59" fill="#fff"/>') +
+      // vertical mouth slits
+      '<path d="M36 74 L36 86 M43 76 L43 89 M57 76 L57 89 M64 74 L64 86" stroke="#0d0814" stroke-width="2.5" stroke-linecap="round"/>' +
+      shine(36, 34, 8, 4, 0.35);
+    return wrap(u, d, b);
+  };
+
+  /* ---------------- TOMBSTONE ---------------- */
+  P.tombstone = function (u) {
+    var B = bg(u, '#265c72', '#122e3c', '#7ce8ff');
+    var d = B.d +
+      lg(u + '-st', 0, 0, 0, 1, [[0, '#9eb2be'], [0.55, '#647a88'], [1, '#3b4b56']]) +
+      lg(u + '-bn', 0, 0, 0, 1, [[0, '#ffffff'], [0.6, '#d4ecee'], [1, '#84a8b2']]);
+    var b = B.b +
+      '<path d="M0 96 Q50 86 100 96 L100 120 L0 120Z" fill="#183842"/>' +
+      // gravestone behind
+      '<path d="M18 96 L22 36 Q24 18 50 18 Q76 18 78 36 L82 96Z" fill="url(#' + u + '-st)" transform="rotate(-6 50 60)"' + st(1.6) + '/>' +
+      '<path d="M30 88 L33 42 Q35 28 50 28 Q65 28 67 42 L70 88Z" fill="none" stroke="#455864" stroke-width="2" transform="rotate(-6 50 60)"/>' +
+      '<path d="M44 46 H56 M50 38 V58" stroke="#364650" stroke-width="4" stroke-linecap="round" transform="rotate(-6 50 60)"/>' +
+      // skeleton hand reaching up in foreground
+      '<path d="M46 120 L48 76 L55 76 L54 120Z" fill="url(#' + u + '-bn)"' + st(1.3) + '/>' +
+      '<ellipse cx="51" cy="72" rx="11" ry="7" fill="url(#' + u + '-bn)"' + st(1.3) + '/>' +
+      '<path d="M40 70 Q34 58 38 52 Q42 56 44 68Z" fill="url(#' + u + '-bn)"' + st(1.1) + '/>' +
+      '<path d="M46 66 Q44 50 49 44 Q53 50 51 66Z" fill="url(#' + u + '-bn)"' + st(1.1) + '/>' +
+      '<path d="M53 66 Q55 50 60 46 Q62 52 58 67Z" fill="url(#' + u + '-bn)"' + st(1.1) + '/>' +
+      '<path d="M59 69 Q64 58 68 56 Q68 62 62 72Z" fill="url(#' + u + '-bn)"' + st(1.1) + '/>';
+    return wrap(u, d, b);
+  };
+
+  /* ---------------- MEGA MINION ---------------- */
+  P.megaminion = function (u) {
+    var B = bg(u, '#4a5678', '#1e2438', '#8ad4ff');
+    var d = B.d +
+      rg(u + '-hm', 0.4, 0.32, 0.7, [[0, '#d0dae6'], [0.5, '#768296'], [1, '#363e4e']]) +
+      lg(u + '-hn', 0, 0, 0, 1, [[0, '#72c8ff'], [1, '#1e5cb8']]) +
+      rg(u + '-ey', 0.5, 0.5, 0.5, [[0, '#fff'], [0.45, '#5ad4ff'], [1, '#1a75ff', 0]]);
+    var b = B.b +
+      '<path d="M4 122 Q8 92 30 86 L70 86 Q92 92 96 122Z" fill="url(#' + u + '-hm)"' + st(1.5) + '/>' +
+      mir('<path d="M32 32 Q22 14 26 2 Q36 12 42 26Z" fill="url(#' + u + '-hn)"' + st(1.4) + '/>') +
+      '<path d="M22 58 Q20 24 50 22 Q80 24 78 58 Q78 88 50 94 Q22 88 22 58Z" fill="url(#' + u + '-hm)"' + st(1.6) + '/>' +
+      '<path d="M46 22 L50 56 L54 22Z" fill="#525c6e"' + st(1.1) + '/>' +
+      mir('<path d="M28 52 L46 56 L44 64 L27 60Z" fill="#101826"' + st(1.2) + '/>' +
+        '<ellipse cx="37" cy="58" rx="7" ry="4.5" fill="url(#' + u + '-ey)"/>') +
+      // heavy jaw visor bars
+      '<path d="M26 66 Q50 74 74 66 L70 88 Q50 96 30 88Z" fill="#5c677a"' + st(1.4) + '/>' +
+      '<path d="M36 70 V88 M45 72 V91 M55 72 V91 M64 70 V88" stroke="#1e2430" stroke-width="3" stroke-linecap="round"/>' +
+      shine(36, 34, 8, 4, 0.45);
+    return wrap(u, d, b);
+  };
+
+  /* ---------------- INFERNO TOWER ---------------- */
+  P.infernotower = function (u) {
+    var B = bg(u, '#4a2848', '#221024', '#ff9a3c');
+    var d = B.d +
+      lg(u + '-st', 0, 0, 1, 0, [[0, '#7a6868'], [0.5, '#4e4044'], [1, '#2e2428']]) +
+      rg(u + '-fl', 0.5, 0.5, 0.5, [[0, '#ffffff'], [0.35, '#fff07a'], [0.7, '#ff7a1a'], [1, '#d82200', 0]]);
+    var b = B.b +
+      // laser beam shooting top-left
+      '<path d="M48 34 L0 8" stroke="#ff4500" stroke-width="11" stroke-linecap="round" opacity="0.65"/>' +
+      '<path d="M48 34 L0 8" stroke="#ffd84a" stroke-width="6" stroke-linecap="round"/>' +
+      '<path d="M48 34 L0 8" stroke="#ffffff" stroke-width="2.5" stroke-linecap="round"/>' +
+      // tower base & stone pillars
+      '<path d="M24 120 L32 62 L68 62 L76 120Z" fill="url(#' + u + '-st)"' + st(1.5) + '/>' +
+      '<rect x="26" y="56" width="48" height="10" rx="2" fill="#685454"' + st(1.3) + '/>' +
+      '<path d="M32 68 H68 M30 84 H70" stroke="#ff6a00" stroke-width="2" opacity="0.8"/>' +
+      // blazing eye ring at top
+      '<circle cx="50" cy="36" r="22" fill="url(#' + u + '-fl)"/>' +
+      '<circle cx="50" cy="36" r="14" fill="none" stroke="#ff5500" stroke-width="4"/>' +
+      '<circle cx="50" cy="36" r="10" fill="#fffbe0"/>';
+    return wrap(u, d, b);
+  };
+
+  /* ---------------- BANDIT ---------------- */
+  P.bandit = function (u) {
+    var B = bg(u, '#7ac69a', '#2e6848', '#d6ffea');
+    var d = B.d + skin(u + '-sk') +
+      lg(u + '-hd', 0, 0, 0, 1, [[0, '#46a862'], [1, '#1b5830']]) +
+      lg(u + '-hr', 0, 0, 0, 1, [[0, '#ffffff'], [1, '#cfd8e2']]);
+    var b = B.b +
+      '<path d="M8 122 Q12 94 32 88 L68 88 Q88 94 92 122Z" fill="url(#' + u + '-hd)"' + st(1.4) + '/>' +
+      '<path d="M28 54 Q28 36 50 36 Q72 36 72 54 Q72 80 50 88 Q28 80 28 54Z" fill="url(#' + u + '-sk)"' + st() + '/>' +
+      // white hair
+      '<path d="M24 62 Q20 30 50 26 Q80 30 76 62 Q70 44 56 42 Q44 42 24 62Z" fill="url(#' + u + '-hr)"' + st(1.2) + '/>' +
+      // green hood
+      '<path d="M16 56 Q16 14 50 12 Q84 14 84 56 Q74 34 50 32 Q26 34 16 56Z" fill="url(#' + u + '-hd)"' + st(1.5) + '/>' +
+      // black bandit domino mask
+      '<path d="M27 50 Q50 44 73 50 L71 66 Q60 68 50 62 Q40 68 29 66Z" fill="#1c222b"' + st(1.2) + '/>' +
+      eye(40, 58, 4.4, 4.2, '#2e8b57', 0.5, 0.3) + eye(60, 58, 4.4, 4.2, '#2e8b57', -0.5, 0.3) +
+      '<path d="M44 76 Q50 80 56 75" fill="none" stroke="#8a3232" stroke-width="1.6" stroke-linecap="round"/>';
+    return wrap(u, d, b);
+  };
+
+  /* ---------------- GOBLIN PARTY ROCKET ---------------- */
+  P.partyrocket = function (u) {
+    var B = bg(u, '#9ee0ff', '#4b86e0', '#ffffff');
+    var d = B.d + goblinDefs(u) +
+      lg(u + '-rk', 0, 0, 1, 1, [[0, '#eef4fc'], [0.5, '#9aa8bc'], [1, '#4c5668']]) +
+      lg(u + '-fn', 0, 0, 0, 1, [[0, '#ff6a5a'], [1, '#b51f1f']]);
+    var b = B.b +
+      // confetti
+      '<circle cx="18" cy="24" r="2.5" fill="#ff5ad8"/><circle cx="84" cy="30" r="2.5" fill="#ffe04a"/><circle cx="20" cy="86" r="2.5" fill="#5aff8a"/><circle cx="82" cy="84" r="2.5" fill="#5ad0ff"/>' +
+      // rocket angled up-left
+      '<g transform="rotate(-32 52 64)">' +
+      // exhaust flame
+      '<path d="M38 96 Q50 124 62 96Z" fill="#ff6a00"/><path d="M42 96 Q50 114 58 96Z" fill="#fff06a"/>' +
+      // fins
+      '<path d="M28 74 L14 94 L32 92Z" fill="url(#' + u + '-fn)"' + st(1.2) + '/>' +
+      '<path d="M72 74 L86 94 L68 92Z" fill="url(#' + u + '-fn)"' + st(1.2) + '/>' +
+      // rocket body
+      '<path d="M50 12 Q72 34 70 92 L30 92 Q28 34 50 12Z" fill="url(#' + u + '-rk)"' + st(1.5) + '/>' +
+      '<path d="M50 12 Q62 24 64 38 L36 38 Q38 24 50 12Z" fill="url(#' + u + '-fn)"' + st(1.3) + '/>' +
+      // skull decal on rocket
+      '<circle cx="50" cy="64" r="10" fill="#fff"' + st(1.1) + '/>' +
+      '<circle cx="46.5" cy="63" r="2.2" fill="#111"/><circle cx="53.5" cy="63" r="2.2" fill="#111"/>' +
+      '<rect x="46" y="70" width="8" height="5" rx="1" fill="#fff"' + st(1) + '/>' +
+      '</g>' +
+      // excited goblin riding on top
+      '<g transform="translate(6 -8) scale(0.56)">' + goblinHead(u) + '</g>';
+    return wrap(u, d, b);
+  };
+
   window.Portraits = P;
 })();
